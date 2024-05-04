@@ -28,7 +28,7 @@ def verificaPalavra(vetor,n_sorteado):
 def jogar(n_sort,cPalav):
     while True:
         print("_"*13)
-        for i in range(4): #EXIBIR CENÁRIO
+        for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
                 print("|",cPalav[i][j], end="")                        
             print("|")
@@ -60,8 +60,7 @@ while True:
     print("1 - Jogar")
     print("2 - Sair")
     opcao = int(input("--> "))
-    if (opcao == 1):
-        #imprimir(sorteado)
+    if (opcao == 1):        
         jogar(sorteado,cPalavra)
     elif (opcao == 2):
         break
