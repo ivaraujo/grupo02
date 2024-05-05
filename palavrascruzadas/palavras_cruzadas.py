@@ -15,35 +15,49 @@ def verificaPalavra(vetor,n_sorteado):
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
     cenario4 = [[" ","V"," ","M"],["C","A","J","A"],[" ","S"," ","Ç"],[" ","O"," ","Ã"]]
-    novoVetor = []
+    novoVetor = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
+    v = 0
     if(n_sorteado == 1):
         print(cenario1)
         for x in range(4):
             for y in range(4):
-                if(vetor[x][y] == cenario1[x][y]):                    
-                    print(cenario1)
+                if(vetor[v] == cenario1[x][y]):                    
+                    print("OK")
+                    #print(vetor[v])
+                    novoVetor[x][y] = vetor[v]
+                    v+=1
             print()
     if(n_sorteado == 2):
         print(cenario2)
         for x in range(4):
             for y in range(4):
-                if(vetor[x][y] == cenario2[x][y]):                    
-                    print(cenario2)
+                if(vetor[v] == cenario2[x][y]):                    
+                    print("OK")
+                    #print(vetor[v])
+                    novoVetor[x][y] = vetor[v]
+                    v+=1
             print()
     if(n_sorteado == 3):
         print(cenario3)
         for x in range(4):
             for y in range(4):
-                if(vetor[x][y] == cenario3[x][y]):
-                    print(cenario3)
+                if(vetor[v] == cenario3[x][y]):
+                    print("OK")
+                    #print(vetor[v])
+                    novoVetor[x][y] = vetor[v]
+                    v+=1
             print()
     if(n_sorteado == 4):
         print(cenario4)
         for x in range(4):
             for y in range(4):
-                if(vetor[x][y] == cenario4[x][y]):
-                    print(cenario4)
+                if(vetor[v] == cenario4[x][y]):
+                    print("OK")
+                    #print(vetor[v])
+                    novoVetor[x][y] = vetor[v]
+                    v+=1
             print()
+    print(novoVetor)
     return novoVetor
 
 def jogar(n_sort,cPalav):
@@ -57,7 +71,8 @@ def jogar(n_sort,cPalav):
         print("3º palavra:")
         n_palavra = int(input("Nº da palavra: "))
         palavra = str(input("Digite a palavra: "))
-        vet_palavra = list(palavra)
+        #palavra = palavra.upper()
+        vet_palavra = list(palavra.upper())
         print(vet_palavra)
         #cPalav = 
         verificaPalavra(vet_palavra,n_sort)
