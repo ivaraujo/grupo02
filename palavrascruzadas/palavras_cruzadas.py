@@ -74,9 +74,10 @@ def jogar(n_sort,cPalav):
                 print("|",cPalav[i][j], end="")                        
             print("|")
             print("¯"*13)
+        break
         #print("3º palavra:")
         #n_palavra = int(input("Nº da palavra: "))
-        palavra = str(input("Digite a palavra: "))
+        palavra = input("Digite a palavra: ")
         vet_palavra = list(palavra.upper())
         print(vet_palavra)
         cPalav, loop = verificaPalavra(vet_palavra,n_sort,loop)
