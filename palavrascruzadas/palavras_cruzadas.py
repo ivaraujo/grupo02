@@ -9,8 +9,6 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
     print(f"Cenário: {n}")
     return n
 
-
-
 def verificaPalavra(vetor,n_sorteado):
     # CENÁRIOS
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
@@ -18,11 +16,34 @@ def verificaPalavra(vetor,n_sorteado):
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
     cenario4 = [[" ","V"," ","M"],["C","A","J","A"],[" ","S"," ","Ç"],[" ","O"," ","Ã"]]
     novoVetor = []
-    for x in range(4):
-        for y in range(4):
-            if(vetor[x][y] == cenario1[x][y]):
-                novoVetor[x][y] = cenario1[x][y]
-                print(novoVetor)
+    if(n_sorteado == 1):
+        print(cenario1)
+        for x in range(4):
+            for y in range(4):
+                if(vetor[x][y] == cenario1[x][y]):                    
+                    print(cenario1)
+            print()
+    if(n_sorteado == 2):
+        print(cenario2)
+        for x in range(4):
+            for y in range(4):
+                if(vetor[x][y] == cenario2[x][y]):                    
+                    print(cenario2)
+            print()
+    if(n_sorteado == 3):
+        print(cenario3)
+        for x in range(4):
+            for y in range(4):
+                if(vetor[x][y] == cenario3[x][y]):
+                    print(cenario3)
+            print()
+    if(n_sorteado == 4):
+        print(cenario4)
+        for x in range(4):
+            for y in range(4):
+                if(vetor[x][y] == cenario4[x][y]):
+                    print(cenario4)
+            print()
     return novoVetor
 
 def jogar(n_sort,cPalav):
@@ -35,9 +56,11 @@ def jogar(n_sort,cPalav):
             print("¯"*13)
         print("3º palavra:")
         n_palavra = int(input("Nº da palavra: "))
-        palavra = input("Digite a palavra: ")
+        palavra = str(input("Digite a palavra: "))
         vet_palavra = list(palavra)
-        cPalav = verificaPalavra(vet_palavra,n_sort)
+        print(vet_palavra)
+        #cPalav = 
+        verificaPalavra(vet_palavra,n_sort)
 '''
 def imprimir(cenario):
     for i in range(4): #EXIBIR CENÁRIO
