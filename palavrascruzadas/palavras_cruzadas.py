@@ -1,6 +1,7 @@
+
 import random
 
-cPalavra = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
+#cPalavra = [["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"]]
 
 #FUNÇÕES
 
@@ -9,16 +10,18 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
     print(f"Cenário: {n}")
     return n
 
-def verificaPalavra(vetor,n_sorteado,l):
+def verificaPalavra(novoVetor,vetor,n_sorteado,l):
     # CENÁRIOS
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
     cenario4 = [[" ","V"," ","M"],["C","A","J","A"],[" ","S"," ","Ç"],[" ","O"," ","Ã"]]
-    novoVetor = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
-    v = 0    
+    #novoVetor = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
+    v = 0
+    x = 0
+    y = 0   
     if(n_sorteado == 1):
-        print(cenario1)
+        #print(cenario1)
         for x in range(4):
             for y in range(4):
                 if(vetor[v] == cenario1[x][y]):                    
@@ -29,7 +32,7 @@ def verificaPalavra(vetor,n_sorteado,l):
                     l+=1
                     break
     if(n_sorteado == 2):
-        print(cenario2)
+        #print(cenario2)
         for x in range(4):
             for y in range(4):
                 if(vetor[v] == cenario2[x][y]):                    
@@ -40,7 +43,7 @@ def verificaPalavra(vetor,n_sorteado,l):
                     l+=1
                     break
     if(n_sorteado == 3):
-        print(cenario3)
+        #print(cenario3)
         for x in range(4):
             for y in range(4):
                 if(vetor[v] == cenario3[x][y]):
@@ -51,7 +54,7 @@ def verificaPalavra(vetor,n_sorteado,l):
                     l+=1
                     break
     if(n_sorteado == 4):
-        print(cenario4)
+        #print(cenario4)
         for x in range(4):
             for y in range(4):
                 if(vetor[v] == cenario4[x][y]):
@@ -61,26 +64,29 @@ def verificaPalavra(vetor,n_sorteado,l):
                     v+=1
                     l+=1
                     break
-    print(novoVetor)
-    return novoVetor
+    #print(novoVetor)
+    return novoVetor, l
 
-def jogar(n_sort,cPalav):
+def jogar(n_sort):
+    #cPalav = cPalavr.copy()
+    cPalav = [["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"]]
     loop = 0
-    while (loop < 11):
+    while (True):
         print("Loop:",loop)
-        print("_"*13)
         for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
-                print("|",cPalav[i][j], end="")                        
-            print("|")
-            print("¯"*13)
-        break
+                print(cPalav[i][j], end=" ")                        
+            print()
+        if(loop > 6):
+            break    
         #print("3º palavra:")
         #n_palavra = int(input("Nº da palavra: "))
         palavra = input("Digite a palavra: ")
         vet_palavra = list(palavra.upper())
         print(vet_palavra)
-        cPalav, loop = verificaPalavra(vet_palavra,n_sort,loop)
+        nVetor, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
+        cPalav = nVetor.copy()
+                    
     
 # MENU
 
@@ -91,7 +97,7 @@ while True:
     print("2 - Sair")
     opcao = int(input("--> "))
     if (opcao == 1):        
-       jogar(sorteado,cPalavra)
+       jogar(sorteado)
     elif (opcao == 2):
         break
     else:
