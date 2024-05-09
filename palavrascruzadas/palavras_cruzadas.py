@@ -12,7 +12,7 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    n_sorteado = 4
+    #n_sorteado = 4
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
@@ -31,7 +31,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
-                    break
     if(n_sorteado == 2):
         #print(cenario2)
         for x in range(4):
@@ -43,7 +42,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
-                    break
     if(n_sorteado == 3):
         #print(cenario3)
         for x in range(4):
@@ -55,7 +53,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
-                    break
     if(n_sorteado == 4):
         #print(cenario4)
         print(novaMatriz)
@@ -71,7 +68,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     novaMatriz[x][y] = vetor[v]                                       
                     v+=1
                     l+=1
-                    #break
     #print(novoVetor)
     return novaMatriz, l
 
