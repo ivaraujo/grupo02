@@ -12,6 +12,7 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 
 def verificaPalavra(novoVetor,vetor,n_sorteado,l):
     # CENÁRIOS
+    n_sorteado = 4
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
