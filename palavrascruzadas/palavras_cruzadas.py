@@ -1,7 +1,5 @@
 import random
 
-#cPalavra = [["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"]]
-
 #FUNÇÕES
 
 def sortearCenario(): #SORTEADOR DE CENÁRIO
@@ -11,7 +9,7 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    #n_sorteado = 2
+    #n_sorteado = 3
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
@@ -25,9 +23,9 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
             for y in range(4):
                 for v in range(4):
                     if(vetor[v] == cenario1[x][y]):
-                        if(vetor[0] == "M"):
+                        if(vetor[0] == "V"):
                             novaMatriz[x][1] = vetor[v]
-                        elif(vetor[0] == "V"):
+                        elif(vetor[0] == "M"):
                             novaMatriz[x][3] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
@@ -40,8 +38,8 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     if(vetor[v] == cenario2[x][y]):
                         if(vetor[0] == "V"):
                             novaMatriz[3][y] = vetor[v]
-                        elif(vetor[0] == "C"):
-                            novaMatriz[x][1] = vetor[v]
+                        elif(vetor[0] == "M"):
+                            novaMatriz[1][y] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
                         l+=1
@@ -53,19 +51,19 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     if(vetor[v] == cenario3[x][y]):
                         if(vetor[0] == "M"):
                             novaMatriz[3][y] = vetor[v]
-                        elif(vetor[0] == "C"):
-                            novaMatriz[x][1] = vetor[v]
+                        elif(vetor[0] == "V"):
+                            novaMatriz[1][y] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
                         l+=1
     if(n_sorteado == 4):
-        print(novaMatriz)
+        #print(novaMatriz)
         for x in range (4):
             v = 0
             for y in range(4):
                 for v in range(4):
                     if(cenario4[x][y] == vetor[v]):
-                        print(f"X: {x} Y: {y} V: {v}")
+                        #print(f"X: {x} Y: {y} V: {v}")
                         if(vetor[0] == "M"):
                             novaMatriz[x][3] = vetor[v]
                         elif(vetor[0] == "V"):
@@ -107,4 +105,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!") 
+        print("Opção inválida!")  
