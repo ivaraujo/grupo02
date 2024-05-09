@@ -10,74 +10,80 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
     print(f"Cenário: {n}")
     return n
 
-def verificaPalavra(novoVetor,vetor,n_sorteado,l):
+def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
     n_sorteado = 4
     cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
     cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
     cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
     cenario4 = [[" ","V"," ","M"],["C","A","J","A"],[" ","S"," ","Ç"],[" ","O"," ","Ã"]]
-    #novoVetor = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
     v = 0
     x = 0
     y = 0   
     if(n_sorteado == 1):
         #print(cenario1)
         for x in range(4):
+            v = 0
             for y in range(4):
                 if(vetor[v] == cenario1[x][y]):                    
                     print("OK")
                     #print(vetor[v])
-                    novoVetor[x][y] = vetor[v]
+                    novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
                     break
     if(n_sorteado == 2):
         #print(cenario2)
         for x in range(4):
+            v = 0
             for y in range(4):
                 if(vetor[v] == cenario2[x][y]):                    
                     print("OK")
                     #print(vetor[v])
-                    novoVetor[x][y] = vetor[v]
+                    novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
                     break
     if(n_sorteado == 3):
         #print(cenario3)
         for x in range(4):
+            v = 0
             for y in range(4):
                 if(vetor[v] == cenario3[x][y]):
                     print("OK")
                     #print(vetor[v])
-                    novoVetor[x][y] = vetor[v]
+                    novaMatriz[x][y] = vetor[v]
                     v+=1
                     l+=1
                     break
     if(n_sorteado == 4):
         #print(cenario4)
+        print(novaMatriz)
         for x in range(4):
+            v = 0            
             for y in range(4):
+                #print(f"X: {x} Y: {y} V: {v}")
+                #v+=1  
                 if(vetor[v] == cenario4[x][y]):
-                    print("OK")
-                    #print(vetor[v])
-                    novoVetor[x][y] = vetor[v]
+                    #print("OK")
+                    print(f"X: {x} Y: {y} V: {v}")  
+                    print(f"Lista: {vetor[v]} Cénario: {cenario4[x][y]} novaMatriz: {novaMatriz[x][y]}")                   
+                    novaMatriz[x][y] = vetor[v]                                       
                     v+=1
                     l+=1
-                    break
+                    #break
     #print(novoVetor)
-    return novoVetor, l
+    return novaMatriz, l
 
 def jogar(n_sort):
-    #cPalav = cPalavr.copy()
-    cPalav = [["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"]]
-    loop = 0
-    while (True):
-        print("Loop:",loop)
-        for i in range(4): #EXIBIR JOGO ATUAL
+    cPalav = [["","","",""],["","","",""],["","","",""],["","","",""]]
+    for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
                 print(cPalav[i][j], end=" ")                        
             print()
+    loop = 0
+    while (True):
+        print("Loop:",loop)        
         if(loop > 6):
             break    
         #print("3º palavra:")
@@ -85,8 +91,11 @@ def jogar(n_sort):
         palavra = input("Digite a palavra: ")
         vet_palavra = list(palavra.upper())
         print(vet_palavra)
-        nVetor, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
-        cPalav = nVetor.copy()
+        nMatriz, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
+        for i in range(4): #EXIBIR JOGO ATUAL
+            for j in range(4):
+                print(nMatriz[i][j], end=" ")                        
+            print()
                     
     
 # MENU
