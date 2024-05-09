@@ -1,4 +1,3 @@
-
 import random
 
 #cPalavra = [["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"],["| |","| |","| |","| |"]]
@@ -58,7 +57,12 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for v in range(4):
                     if(cenario4[x][y] == vetor[v]):
                         print(f"X: {x} Y: {y} V: {v}")
-                        novaMatriz[x][y] = vetor[v]
+                        if(vetor[0] == "M"):
+                            novaMatriz[x][3] = vetor[v]
+                        elif(vetor[0] == "V"):
+                            novaMatriz[x][1] = vetor[v]
+                        else:
+                            novaMatriz[x][y] = vetor[v]    
                         l+=1
     return novaMatriz, l
 
@@ -94,4 +98,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!")
+        print("Opção inválida!")  
