@@ -77,27 +77,27 @@ def jogar(n_sort):
     cPalav = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
     for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
-                print(cPalav[i][j], end=" ")
-            print()
+                print("|",cPalav[i][j], end=" ")
+            print("|")
     loop = 0
     while (True):
         #print("Loop:",loop)
         if(loop > 15):
             break
         print()
-        print(f"Cenário: {sortearCenario()}")
+        #print(f"Cenário: {sortearCenario()}")
         print("| ++ Dicas ++ |")
         print("1 - É crocante ao dar uma mordida.")
         print("2 - Tem uma polpa suculenta de sabor relativamente azedo.")
         print("3 - É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações.", "\n")
         palavra = input("Digite a palavra: ")
         vet_palavra = list(palavra.upper())
-        print(vet_palavra)
+        #print(vet_palavra)
         nMatriz, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
         for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
-                print(nMatriz[i][j], end=" ")
-            print()
+                print("|",nMatriz[i][j], end=" ")
+            print("|")
 # MENU
 
 sorteado = sortearCenario()
