@@ -103,9 +103,9 @@ def jogar(n_sort):
         print()
         #print(f"Cenário: {sortearCenario()}")
         print("| ++ Dicas ++ |")
-        print("1 - É crocante ao dar uma mordida.")
-        print("2 - Tem uma polpa suculenta de sabor relativamente azedo.")
-        print("3 - É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações.", "\n")
+        print("1º palavra -> É uma fruta crocante ao dar uma mordida. E sua textura é macia por dentro.")
+        print("2º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
+        print("3º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas", "\n")
         palavra = input("Digite a palavra: ")        
         vet_palavra = list(palavra.upper())
         if(os.name == "nt"):
