@@ -19,24 +19,21 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     x = 0
     y = 0
     
-    verifica = 0
-    while True:
-        for a in range(5):
-            status = False
-            for b in range(5):            
-                for c in range(len(vetor)):
-                    if(vetor[c] == cenario1[a][b]):
-                        status = True
-                    if(vetor[c] == cenario2[a][b]):
-                        status = True
-                    if(vetor[c] == cenario3[a][b]):
-                        status = True
-                    if(vetor[c] == cenario4[a][b]):
-                        status = True
-        if(status == True):
-            verifica += 1
-            if(verifica == 4):
-                break
+    verifica = 0    
+    for a in range(5):
+        status = False
+        for b in range(5):            
+            for c in range(len(vetor)):
+                if(vetor[c] == cenario1[a][b]):
+                    status = True
+                if(vetor[c] == cenario2[a][b]):
+                    status = True
+                if(vetor[c] == cenario3[a][b]):
+                    status = True
+                if(vetor[c] == cenario4[a][b]):
+                    status = True
+    if(status == True):
+        verifica += 1
     print("Verifica:", verifica)
     if(verifica == 4):
         if(n_sorteado == 1):
