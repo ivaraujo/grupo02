@@ -4,25 +4,25 @@ import os
 
 #FUNÇÕES
 def sortearCenario(): #SORTEADOR DE CENÁRIO
-    n = random.choice([1,2,3,4])#
-    #print(f"Cenário: {n}")
+    n = random.choice([1,2,3,4])
+    print(f"Cenário: {n}")
     return n
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    #n_sorteado = 3
-    cenario1 = [[" ","M"," ","V"],["C","A","J","A"],[" ","Ç"," ","S"],[" ","Ã"," ","O"]]
-    cenario2 = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
-    cenario3 = [[" ","C"," "," "],["V","A","S","O"],[" ","J"," "," "],["M","A","Ç","Ã"]]
-    cenario4 = [[" ","V"," ","M"],["C","A","J","A"],[" ","S"," ","Ç"],[" ","O"," ","Ã"]]
+    #n_sorteado = 4
+    cenario1 = [[" "," ","1"," ","2"],[" "," ","M"," ","V"],["3","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
+    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","M","A","Ç","Ã"],[" "," ","J"," "," "],["3","V","A","S","O"]]
+    cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
+    cenario4 = [[" "," ","1"," ","2"],[" "," ","V"," ","M"],["3","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
     v = 0
     x = 0
     y = 0
     if(n_sorteado == 1):
-        for x in range(4):
+        for x in range(5):
             v = 0
-            for y in range(4):
-                for v in range(4):
+            for y in range(5):
+                for v in range(5):
                     if(vetor[v] == cenario1[x][y]):
                         if(vetor[0] == "V"):
                             novaMatriz[x][1] = vetor[v]
@@ -32,10 +32,10 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             novaMatriz[x][y] = vetor[v]
                         l+=1
     if(n_sorteado == 2):
-        for x in range(4):
+        for x in range(5):
             v = 0
-            for y in range(4):
-                for v in range(4):
+            for y in range(5):
+                for v in range(5):
                     if(vetor[v] == cenario2[x][y]):
                         if(vetor[0] == "V"):
                             novaMatriz[3][y] = vetor[v]
@@ -45,10 +45,10 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             novaMatriz[x][y] = vetor[v]
                         l+=1
     if(n_sorteado == 3):
-        for x in range(4):
+        for x in range(5):
             v = 0
-            for y in range(4):
-                for v in range(4):
+            for y in range(5):
+                for v in range(5):
                     if(vetor[v] == cenario3[x][y]):
                         if(vetor[0] == "M"):
                             novaMatriz[3][y] = vetor[v]
@@ -59,36 +59,40 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                         l+=1
     if(n_sorteado == 4):
         #print(novaMatriz)
-        for x in range (4):
+        for x in range (5):
             v = 0
-            for y in range(4):
+            for y in range(5):
                 for v in range(4):
                     if(cenario4[x][y] == vetor[v]):
                         #print(f"X: {x} Y: {y} V: {v}")
                         if(vetor[0] == "M"):
-                            novaMatriz[x][3] = vetor[v]
+                            novaMatriz[x][4] = vetor[v]
                         elif(vetor[0] == "V"):
-                            novaMatriz[x][1] = vetor[v]
+                            novaMatriz[x][2] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]    
                         l+=1
     return novaMatriz, l
 
 def jogar(n_sort):
-    #cPalav = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
-    if(n_sort == 1):
-        cPalav = [[" ","-"," ","-"],["-","-","-","-"],[" ","-"," ","-"],[" ","-"," ","-"]]
-    if(n_sort == 2):
-        cPalav = [[" ","-"," "," "],["-","-","-","-"],[" ","-"," "," "],["-","-","-","-"]]
-    if(n_sort == 3):
-        cPalav = [[" ","-"," "," "],["-","-","-","-"],[" ","-"," "," "],["-","-","-","-"]]
-    if(n_sort == 4):
-        cPalav = [[" ","-"," ","-"],["-","-","-","-"],[" ","-"," ","-"],[" ","-"," ","-"]]
+    n_sort = 4
     
-    for i in range(4): #EXIBIR JOGO ATUAL
-        for j in range(4):
-            if(cPalav[i][j] != " "):                
-                print(f"\033[31;41m {cPalav[i][j]} \033[m", end="")
+    if(n_sort == 1):
+        cPalav = [[" "," ","1"," ","2"],[" "," ","-"," ","-"],["3","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
+    if(n_sort == 2):
+        cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["2","-","-","-","-"],[" "," ","-"," "," "],["3","-","-","-","-"]]
+    if(n_sort == 3):
+        cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["2","-","-","-","-"],[" "," ","-"," "," "],["3","-","-","-","-"]]
+    if(n_sort == 4):
+        cPalav = [[" "," ","1"," ","2"],[" "," ","-"," ","-"],["3","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
+    
+    for i in range(5): #EXIBIR JOGO ATUAL
+        for j in range(5):
+            if(cPalav[i][j] != " "):
+                if(cPalav[i][j] == "1" or cPalav[i][j] == "2" or cPalav[i][j] == "3"):
+                    print(f"\033[30;40m {cPalav[i][j]} \033[m", end="")
+                else:                
+                    print(f"\033[31;41m {cPalav[i][j]} \033[m", end="")
             else:            
                 print(f" {cPalav[i][j]} ", end="")
         print()
@@ -113,10 +117,13 @@ def jogar(n_sort):
         else:
             os.system("clear")
         nMatriz, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
-        for i in range(4): #EXIBIR JOGO ATUAL
-            for j in range(4):
-                if(nMatriz[i][j] != " "):                
-                    print(f"\033[0;30;41m {nMatriz[i][j]} \033[m", end="")
+        for i in range(5): #EXIBIR JOGO ATUAL
+            for j in range(5):
+                if(nMatriz[i][j] != " "):
+                    if(nMatriz[i][j] == "1" or nMatriz[i][j] == "2" or nMatriz[i][j] == "3"):
+                        print(f"\033[30;40m {nMatriz[i][j]} \033[m", end="")
+                    else:                
+                        print(f"\033[0;31;41m {nMatriz[i][j]} \033[m", end="")
                 else:            
                     print(f" {nMatriz[i][j]} ", end="")
             print()   
