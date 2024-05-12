@@ -1,17 +1,12 @@
-cPalavra = [[" ","C"," "," "],["M","A","Ç","Ã"],[" ","J"," "," "],["V","A","S","O"]]
-v = 0
-for i in range(4):
-    for j in range(4):
-        print(cPalavra[i][j],end="")
-    print()
+nMatriz = [[" ","-"," "," "],
+           ["-","-","-","-"],
+           [" ","-"," "," "],
+           ["-","-","-","-"]]
 
-for i in range(4):
+for i in range(4): #EXIBIR JOGO ATUAL
     for j in range(4):
-        letra = input("Dite a letra: ")
-        cPalavra[i][j] = letra
-        v+=1
-
-for i in range(4):
-    for j in range(4):
-        print(cPalavra[i][j],end="")
+        if(nMatriz[i][j] != " "):                
+            print(f"\033[31;41m {nMatriz[i][j]} \033[m", end="")
+        else:            
+            print(f" {nMatriz[i][j]} ", end="")
     print()

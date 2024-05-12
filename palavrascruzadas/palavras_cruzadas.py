@@ -1,5 +1,6 @@
 import random
 import time
+import os
 
 #FUNÇÕES
 def sortearCenario(): #SORTEADOR DE CENÁRIO
@@ -74,15 +75,30 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     return novaMatriz, l
 
 def jogar(n_sort):
-    cPalav = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
+    #cPalav = [[" "," "," "," "],[" "," "," "," "],[" "," "," "," "],[" "," "," "," "]]
+    if(n_sort == 1):
+        cPalav = [[" ","-"," ","-"],["-","-","-","-"],[" ","-"," ","-"],[" ","-"," ","-"]]
+    if(n_sort == 2):
+        cPalav = [[" ","-"," "," "],["-","-","-","-"],[" ","-"," "," "],["-","-","-","-"]]
+    if(n_sort == 3):
+        cPalav = [[" ","-"," "," "],["-","-","-","-"],[" ","-"," "," "],["-","-","-","-"]]
+    if(n_sort == 4):
+        cPalav = [[" ","-"," ","-"],["-","-","-","-"],[" ","-"," ","-"],[" ","-"," ","-"]]
+    
     for i in range(4): #EXIBIR JOGO ATUAL
-            for j in range(4):
-                print("|",cPalav[i][j], end=" ")
-            print("|")
+        for j in range(4):
+            if(cPalav[i][j] != " "):                
+                print(f"\033[31;41m {cPalav[i][j]} \033[m", end="")
+            else:            
+                print(f" {cPalav[i][j]} ", end="")
+        print()
     loop = 0
     while (True):
         #print("Loop:",loop)
         if(loop > 15):
+            print()
+            print("PARABÉNS! VOCÊ TERMINOU!")
+            print()
             break
         print()
         #print(f"Cenário: {sortearCenario()}")
@@ -90,14 +106,20 @@ def jogar(n_sort):
         print("1 - É crocante ao dar uma mordida.")
         print("2 - Tem uma polpa suculenta de sabor relativamente azedo.")
         print("3 - É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações.", "\n")
-        palavra = input("Digite a palavra: ")
+        palavra = input("Digite a palavra: ")        
         vet_palavra = list(palavra.upper())
-        #print(vet_palavra)
+        if(os.name == "nt"):
+            os.system("cls")
+        else:
+            os.system("clear")
         nMatriz, loop = verificaPalavra(cPalav, vet_palavra, n_sort, loop)
         for i in range(4): #EXIBIR JOGO ATUAL
             for j in range(4):
-                print("|",nMatriz[i][j], end=" ")
-            print("|")
+                if(nMatriz[i][j] != " "):                
+                    print(f"\033[0;30;41m {nMatriz[i][j]} \033[m", end="")
+                else:            
+                    print(f" {nMatriz[i][j]} ", end="")
+            print()   
 # MENU
 
 sorteado = sortearCenario()
@@ -111,6 +133,12 @@ while True:
     print("|1 - JOGAR|")
     print("|2 - SAIR DO JOGO|")
     opcao = int(input("--> "))
+
+    if(os.name == "nt"):
+        os.system("cls")
+    else:
+        os.system("clear")
+
     if (opcao == 1):
        jogar(sorteado)
     elif (opcao == 2):
