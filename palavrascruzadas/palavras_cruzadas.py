@@ -11,10 +11,10 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
     #n_sorteado = 4
-    cenario1 = [[" "," ","1"," ","2"],[" "," ","M"," ","V"],["3","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
-    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","M","A","Ç","Ã"],[" "," ","J"," "," "],["3","V","A","S","O"]]
+    cenario1 = [[" "," ","3"," ","2"],[" "," ","M"," ","V"],["1","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
+    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["3","M","A","Ç","Ã"],[" "," ","J"," "," "],["2","V","A","S","O"]]
     cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
-    cenario4 = [[" "," ","1"," ","2"],[" "," ","V"," ","M"],["3","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
+    cenario4 = [[" "," ","2"," ","3"],[" "," ","V"," ","M"],["1","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
     v = 0
     x = 0
     y = 0
@@ -22,12 +22,12 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
         for x in range(5):
             v = 0
             for y in range(5):
-                for v in range(5):
+                for v in range(4):
                     if(vetor[v] == cenario1[x][y]):
                         if(vetor[0] == "V"):
-                            novaMatriz[x][1] = vetor[v]
+                            novaMatriz[x][2] = vetor[v]
                         elif(vetor[0] == "M"):
-                            novaMatriz[x][3] = vetor[v]
+                            novaMatriz[x][4] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
                         l+=1
@@ -35,12 +35,12 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
         for x in range(5):
             v = 0
             for y in range(5):
-                for v in range(5):
+                for v in range(4):
                     if(vetor[v] == cenario2[x][y]):
                         if(vetor[0] == "V"):
-                            novaMatriz[3][y] = vetor[v]
+                            novaMatriz[4][y] = vetor[v]
                         elif(vetor[0] == "M"):
-                            novaMatriz[1][y] = vetor[v]
+                            novaMatriz[2][y] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
                         l+=1
@@ -48,12 +48,12 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
         for x in range(5):
             v = 0
             for y in range(5):
-                for v in range(5):
+                for v in range(4):
                     if(vetor[v] == cenario3[x][y]):
                         if(vetor[0] == "M"):
-                            novaMatriz[3][y] = vetor[v]
+                            novaMatriz[4][y] = vetor[v]
                         elif(vetor[0] == "V"):
-                            novaMatriz[1][y] = vetor[v]
+                            novaMatriz[2][y] = vetor[v]
                         else:
                             novaMatriz[x][y] = vetor[v]
                         l+=1
@@ -75,16 +75,16 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     return novaMatriz, l
 
 def jogar(n_sort):
-    n_sort = 4
+    #n_sort = 4
     
     if(n_sort == 1):
-        cPalav = [[" "," ","1"," ","2"],[" "," ","-"," ","-"],["3","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
+        cPalav = [[" "," ","3"," ","2"],[" "," ","-"," ","-"],["1","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
     if(n_sort == 2):
-        cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["2","-","-","-","-"],[" "," ","-"," "," "],["3","-","-","-","-"]]
+        cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["3","-","-","-","-"],[" "," ","-"," "," "],["2","-","-","-","-"]]
     if(n_sort == 3):
         cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["2","-","-","-","-"],[" "," ","-"," "," "],["3","-","-","-","-"]]
     if(n_sort == 4):
-        cPalav = [[" "," ","1"," ","2"],[" "," ","-"," ","-"],["3","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
+        cPalav = [[" "," ","2"," ","3"],[" "," ","-"," ","-"],["1","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
     
     for i in range(5): #EXIBIR JOGO ATUAL
         for j in range(5):
@@ -106,10 +106,10 @@ def jogar(n_sort):
             break
         print()
         #print(f"Cenário: {sortearCenario()}")
-        print("| ++ Dicas ++ |")
-        print("1º palavra -> É uma fruta crocante ao dar uma mordida. E sua textura é macia por dentro.")
-        print("2º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
-        print("3º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas", "\n")
+        print("| ++ Dicas ++ |")        
+        print("1º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
+        print("2º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas")
+        print("3º palavra -> É uma fruta crocante ao dar uma mordida. E sua textura é macia por dentro.\n")
         palavra = input("Digite a palavra: ")        
         vet_palavra = list(palavra.upper())
         if(os.name == "nt"):
@@ -128,10 +128,8 @@ def jogar(n_sort):
                     print(f" {nMatriz[i][j]} ", end="")
             print()   
 # MENU
-
-sorteado = sortearCenario()
-
 while True:
+    sorteado = sortearCenario()
     print("|SEJAM MUITO BEM-VINDOS|")
     time.sleep(1.5)
     print("|AO JOGO DE PALAVRAS-CRUZADAS!|\n")
