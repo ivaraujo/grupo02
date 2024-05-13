@@ -21,19 +21,19 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
         for b in range(5):            
             for c in range(len(vetor)):
-                if(vetor[c] == cenario1[a][b]):
+                if(vetor[c] == cenario1[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario2[a][b]):
+                if(vetor[c] == cenario2[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario3[a][b]):
+                if(vetor[c] == cenario3[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario4[a][b]):
+                if(vetor[c] == cenario4[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
@@ -48,12 +48,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario1[x][y]):
-                            if(vetor[0] == "V"):
+                            if(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[x][4] = vetor[v]
-                            elif(vetor[0] == "M"):
+                                v_jatem = 1
+                            elif(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
-                            else:
+                                m_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 2):
             for x in range(5):
@@ -61,12 +64,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario2[x][y]):
-                            if(vetor[0] == "V"):
+                            if(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[4][y] = vetor[v]
-                            elif(vetor[0] == "M"):
+                                v_jatem = 1
+                            elif(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
-                            else:
+                                m_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 3):
             for x in range(5):
@@ -74,12 +80,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario3[x][y]):
-                            if(vetor[0] == "M"):
+                            if(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[4][y] = vetor[v]
-                            elif(vetor[0] == "V"):
+                                m_jatem = 1
+                            elif(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
-                            else:
+                                v_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 4):            
             for x in range (5):
@@ -87,12 +96,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(4):
                         if(cenario4[x][y] == vetor[v]):
-                            if(vetor[0] == "M"):
+                            if(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[x][4] = vetor[v]
-                            elif(vetor[0] == "V"):
+                                m_jatem = 1
+                            elif(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
-                            else:
-                                novaMatriz[2][y] = vetor[v]    
+                                v_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
+                                novaMatriz[2][y] = vetor[v]
+                                c_jatem = 1    
             l+=1
     return novaMatriz, l
 
@@ -110,9 +122,9 @@ def jogar(n_sort):
         for j in range(5):
             if(cPalav[i][j] != " "):
                 if(cPalav[i][j] == "1" or cPalav[i][j] == "2" or cPalav[i][j] == "3"):
-                    print(f"\033[30;40m {cPalav[i][j]} \033[m", end="")
+                    print(f"\033[40m {cPalav[i][j]} \033[m", end="")
                 else:                
-                    print(f"\033[31;41m {cPalav[i][j]} \033[m", end="")
+                    print(f"\033[41m {cPalav[i][j]} \033[m", end="")
             else:            
                 print(f" {cPalav[i][j]} ", end="")
         print()
@@ -139,9 +151,9 @@ def jogar(n_sort):
             for j in range(5):
                 if(nMatriz[i][j] != " "):
                     if(nMatriz[i][j] == "1" or nMatriz[i][j] == "2" or nMatriz[i][j] == "3"):
-                        print(f"\033[30;40m {nMatriz[i][j]} \033[m", end="")
+                        print(f"\033[40m {nMatriz[i][j]} \033[m", end="")
                     else:                
-                        print(f"\033[0;31;41m {nMatriz[i][j]} \033[m", end="")
+                        print(f"\033[41m {nMatriz[i][j]} \033[m", end="")
                 else:            
                     print(f" {nMatriz[i][j]} ", end="")
             print()   
