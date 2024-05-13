@@ -1,21 +1,57 @@
-nMatriz = [[" "," ","-"," "," "],
-           [" "," ","-"," "," "],
-           [" ","-","-","-","-"],
-           [" "," ","-"," "," "],
-           [" ","-","-","-","-"]]
+verifica = 0
+status = False
+vetor = list(input("Digite:"))
 
-for i in range(5): #EXIBIR JOGO ATUAL
-    for j in range(5):
-        if(nMatriz[i][j] != " "):                
-            print(f"\033[31;41m {nMatriz[i][j]} \033[m", end="")
-        else:            
-            print(f" {nMatriz[i][j]} ", end="")
-    print()
+cenario1 = [[" "," ","3"," ","2"],
+            [" "," ","M"," ","V"],
+            ["1","C","A","J","A"],
+            [" "," ","Ç"," ","S"],
+            [" "," ","Ã"," ","O"]]
+cenario2 = [[" "," ","1"," "," "],
+            [" "," ","C"," "," "],
+            ["3","M","A","Ç","Ã"],
+            [" "," ","J"," "," "],
+            ["2","V","A","S","O"]]
+cenario3 = [[" "," ","1"," "," "],
+            [" "," ","C"," "," "],
+            ["2","V","A","S","O"],
+            [" "," ","J"," "," "],
+            ["3","M","A","Ç","Ã"]]
+cenario4 = [[" "," ","2"," ","3"],
+            [" "," ","V"," ","M"],
+            ["1","C","A","J","A"],
+            [" "," ","S"," ","Ç"],
+            [" "," ","O"," ","Ã"]]
 
+for a in range(5):        
+        for b in range(5):            
+            for c in range(len(vetor)):
+                if(vetor[c] == cenario1[a][b]):
+                    status = True
+                else:
+                    status = False                
+                if(vetor[c] == cenario2[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario3[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario4[a][b]):
+                    status = True
+                else:
+                    status = False
+
+                if(status == True):
+                    verifica += 1               
+
+
+print("Verifica:",verifica)
     #1 caja
     #2 vaso
     #3 maçã
-
+'''
     cenario1 = [[" "," ","3"," ","2"],
                 [" "," ","M"," ","V"],
                 ["1","C","A","J","A"],
@@ -41,3 +77,4 @@ for i in range(5): #EXIBIR JOGO ATUAL
     cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["3","-","-","-","-"],[" "," ","-"," "," "],["2","-","-","-","-"]]
     cPalav = [[" "," ","1"," "," "],[" "," ","-"," "," "],["2","-","-","-","-"],[" "," ","-"," "," "],["3","-","-","-","-"]]
     cPalav = [[" "," ","2"," ","3"],[" "," ","-"," ","-"],["1","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
+'''

@@ -5,18 +5,33 @@ import os
 #FUNÇÕES
 def sortearCenario(): #SORTEADOR DE CENÁRIO
     n = random.choice([1,2,3,4])
-    print(f"Cenário: {n}")
     return n
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    #n_sorteado = 4
-    cenario1 = [[" "," ","3"," ","2"],[" "," ","M"," ","V"],["1","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
-    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["3","M","A","Ç","Ã"],[" "," ","J"," "," "],["2","V","A","S","O"]]
-    cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
-    cenario4 = [[" "," ","2"," ","3"],[" "," ","V"," ","M"],["1","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
+    cenario1 = [[" "," ","3"," ","2"],
+                [" "," ","M"," ","V"],
+                ["1","C","A","J","A"],
+                [" "," ","Ç"," ","S"],
+                [" "," ","Ã"," ","O"]]
+    cenario2 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["3","M","A","Ç","Ã"],
+                [" "," ","J"," "," "],
+                ["2","V","A","S","O"]]
+    cenario3 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["2","V","A","S","O"],
+                [" "," ","J"," "," "],
+                ["3","M","A","Ç","Ã"]]
+    cenario4 = [[" "," ","2"," ","3"],
+                [" "," ","V"," ","M"],
+                ["1","C","A","J","A"],
+                [" "," ","S"," ","Ç"],
+                [" "," ","O"," ","Ã"]]
     v = 0
     x = 0
+<<<<<<< HEAD
     y = 0    
     
     if(n_sorteado == 1):
@@ -73,11 +88,91 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                         else:
                             novaMatriz[x][y] = vetor[v]    
                         l+=1
+=======
+    y = 0
+    verifica = 0
+    status = False    
+    for a in range(5):        
+        for b in range(5):            
+            for c in range(len(vetor)):
+                if(vetor[c] == cenario1[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario2[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario3[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario4[a][b]):
+                    status = True
+                else:
+                    status = False
+
+                if(status == True):
+                    verifica += 1
+    print("Verifica:", verifica)
+    if(verifica > 4):
+        if(n_sorteado == 1):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario1[x][y]):
+                            if(vetor[0] == "V"):
+                                novaMatriz[x][4] = vetor[v]
+                            elif(vetor[0] == "M"):
+                                novaMatriz[x][2] = vetor[v]
+                            else:
+                                novaMatriz[2][y] = vetor[v]
+            l+=1
+        if(n_sorteado == 2):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario2[x][y]):
+                            if(vetor[0] == "V"):
+                                novaMatriz[4][y] = vetor[v]
+                            elif(vetor[0] == "M"):
+                                novaMatriz[2][y] = vetor[v]
+                            else:
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
+        if(n_sorteado == 3):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario3[x][y]):
+                            if(vetor[0] == "M"):
+                                novaMatriz[4][y] = vetor[v]
+                            elif(vetor[0] == "V"):
+                                novaMatriz[2][y] = vetor[v]
+                            else:
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
+        if(n_sorteado == 4):            
+            for x in range (5):
+                v = 0
+                for y in range(5):
+                    for v in range(4):
+                        if(cenario4[x][y] == vetor[v]):
+                            if(vetor[0] == "M"):
+                                novaMatriz[x][4] = vetor[v]
+                            elif(vetor[0] == "V"):
+                                novaMatriz[x][2] = vetor[v]
+                            else:
+                                novaMatriz[2][y] = vetor[v]    
+            l+=1
+    print("Loop:",l)
+>>>>>>> dev
     return novaMatriz, l
 
 def jogar(n_sort):
-    #n_sort = 4
-    
     if(n_sort == 1):
         cPalav = [[" "," ","3"," ","2"],[" "," ","-"," ","-"],["1","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
     if(n_sort == 2):
@@ -99,14 +194,12 @@ def jogar(n_sort):
         print()
     loop = 0
     while (True):
-        #print("Loop:",loop)
-        if(loop > 15):
+        if(loop == 3):
             print()
             print("PARABÉNS! VOCÊ TERMINOU!")
             print()
             break
         print()
-        #print(f"Cenário: {sortearCenario()}")
         print("| ++ Dicas ++ |")        
         print("1º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
         print("2º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas")
