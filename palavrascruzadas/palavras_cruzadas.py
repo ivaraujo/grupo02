@@ -29,6 +29,13 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 ["1","C","A","J","A"],
                 [" "," ","S"," ","Ç"],
                 [" "," ","O"," ","Ã"]]
+    erro = 0
+    c_jatem = 0
+    m_jatem = 0
+    v_jatem = 0      
+    if len(vetor) > 4:
+        print("Errado")
+        erro = 1
     v = 0
     x = 0
     y = 0
@@ -37,19 +44,19 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
         for b in range(5):            
             for c in range(len(vetor)):
-                if(vetor[c] == cenario1[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
+                if(vetor[c] == cenario1[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario2[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
+                if(vetor[c] == cenario2[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario3[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
+                if(vetor[c] == cenario3[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario4[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
+                if(vetor[c] == cenario4[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")and erro == 0):
                     status = True
                 else:
                     status = False
@@ -64,12 +71,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario1[x][y]):
-                            if(vetor[0] == "V"):
+                            if(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[x][4] = vetor[v]
-                            elif(vetor[0] == "M"):
+                                v_jatem = 1
+                            elif(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
-                            else:
+                                m_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 2):
             for x in range(5):
@@ -77,12 +87,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario2[x][y]):
-                            if(vetor[0] == "V"):
+                            if(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[4][y] = vetor[v]
-                            elif(vetor[0] == "M"):
+                                v_jatem = 1
+                            elif(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
-                            else:
+                                m_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 3):
             for x in range(5):
@@ -90,12 +103,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario3[x][y]):
-                            if(vetor[0] == "M"):
+                            if(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[4][y] = vetor[v]
-                            elif(vetor[0] == "V"):
+                                m_jatem = 1
+                            elif(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[2][y] = vetor[v]
-                            else:
+                                v_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
+                                c_jatem = 1
             l+=1
         if(n_sorteado == 4):            
             for x in range (5):
@@ -103,12 +119,15 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(4):
                         if(cenario4[x][y] == vetor[v]):
-                            if(vetor[0] == "M"):
+                            if(vetor[0] == "M" and m_jatem == 0):
                                 novaMatriz[x][4] = vetor[v]
-                            elif(vetor[0] == "V"):
+                                m_jatem = 1
+                            elif(vetor[0] == "V" and v_jatem == 0):
                                 novaMatriz[x][2] = vetor[v]
-                            else:
-                                novaMatriz[2][y] = vetor[v]    
+                                v_jatem = 1
+                            elif(vetor[0] == "C" and c_jatem == 0):
+                                novaMatriz[2][y] = vetor[v]
+                                c_jatem = 1    
             l+=1
     return novaMatriz, l
 
@@ -183,4 +202,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!")
+        print("Opção inválida!") 
