@@ -11,10 +11,26 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
     #n_sorteado = 1
-    cenario1 = [[" "," ","3"," ","2"],[" "," ","M"," ","V"],["1","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
-    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["3","M","A","Ç","Ã"],[" "," ","J"," "," "],["2","V","A","S","O"]]
-    cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
-    cenario4 = [[" "," ","2"," ","3"],[" "," ","V"," ","M"],["1","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
+    cenario1 = [[" "," ","3"," ","2"],
+                [" "," ","M"," ","V"],
+                ["1","C","A","J","A"],
+                [" "," ","Ç"," ","S"],
+                [" "," ","Ã"," ","O"]]
+    cenario2 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["3","M","A","Ç","Ã"],
+                [" "," ","J"," "," "],
+                ["2","V","A","S","O"]]
+    cenario3 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["2","V","A","S","O"],
+                [" "," ","J"," "," "],
+                ["3","M","A","Ç","Ã"]]
+    cenario4 = [[" "," ","2"," ","3"],
+                [" "," ","V"," ","M"],
+                ["1","C","A","J","A"],
+                [" "," ","S"," ","Ç"],
+                [" "," ","O"," ","Ã"]]
     v = 0
     x = 0
     y = 0
@@ -51,9 +67,9 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                     for v in range(len(vetor)):
                         if(vetor[v] == cenario1[x][y]):
                             if(vetor[0] == "V"):
-                                novaMatriz[x][2] = vetor[v]
-                            elif(vetor[0] == "M"):
                                 novaMatriz[x][4] = vetor[v]
+                            elif(vetor[0] == "M"):
+                                novaMatriz[x][2] = vetor[v]
                             else:
                                 novaMatriz[2][y] = vetor[v]
             l+=1
