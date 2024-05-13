@@ -31,62 +31,86 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 [" "," ","O"," ","Ã"]]
     v = 0
     x = 0
-    y = 0    
-    
-    if(n_sorteado == 1):
-        for x in range(5):
-            v = 0
-            for y in range(5):
-                for v in range(len(vetor)):
-                    if(vetor[v] == cenario1[x][y]):
-                        if(vetor[0] == "V"):
-                            novaMatriz[x][2] = vetor[v]
-                        elif(vetor[0] == "M"):
-                            novaMatriz[x][4] = vetor[v]
-                        else:
-                            novaMatriz[x][y] = vetor[v]
-                        l+=1
-    if(n_sorteado == 2):
-        for x in range(5):
-            v = 0
-            for y in range(5):
-                for v in range(len(vetor)):
-                    if(vetor[v] == cenario2[x][y]):
-                        if(vetor[0] == "V"):
-                            novaMatriz[4][y] = vetor[v]
-                        elif(vetor[0] == "M"):
-                            novaMatriz[2][y] = vetor[v]
-                        else:
-                            novaMatriz[x][y] = vetor[v]
-                        l+=1
-    if(n_sorteado == 3):
-        for x in range(5):
-            v = 0
-            for y in range(5):
-                for v in range(len(vetor)):
-                    if(vetor[v] == cenario3[x][y]):
-                        if(vetor[0] == "M"):
-                            novaMatriz[4][y] = vetor[v]
-                        elif(vetor[0] == "V"):
-                            novaMatriz[2][y] = vetor[v]
-                        else:
-                            novaMatriz[x][y] = vetor[v]
-                        l+=1
-    if(n_sorteado == 4):
-        #print(novaMatriz)
-        for x in range (5):
-            v = 0
-            for y in range(5):
-                for v in range(4):
-                    if(cenario4[x][y] == vetor[v]):
-                        #print(f"X: {x} Y: {y} V: {v}")
-                        if(vetor[0] == "M"):
-                            novaMatriz[x][4] = vetor[v]
-                        elif(vetor[0] == "V"):
-                            novaMatriz[x][2] = vetor[v]
-                        else:
-                            novaMatriz[x][y] = vetor[v]    
-                        l+=1
+    y = 0
+    verifica = 0
+    status = False    
+    for a in range(5):        
+        for b in range(5):            
+            for c in range(len(vetor)):
+                if(vetor[c] == cenario1[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario2[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario3[a][b]):
+                    status = True
+                else:
+                    status = False
+                if(vetor[c] == cenario4[a][b]):
+                    status = True
+                else:
+                    status = False
+
+                if(status == True):
+                    verifica += 1
+    print("Verifica:", verifica)
+    if(verifica > 4):
+        if(n_sorteado == 1):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario1[x][y]):
+                            if(vetor[0] == "V"):
+                                novaMatriz[x][4] = vetor[v]
+                            elif(vetor[0] == "M"):
+                                novaMatriz[x][2] = vetor[v]
+                            else:
+                                novaMatriz[2][y] = vetor[v]
+            l+=1
+        if(n_sorteado == 2):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario2[x][y]):
+                            if(vetor[0] == "V"):
+                                novaMatriz[4][y] = vetor[v]
+                            elif(vetor[0] == "M"):
+                                novaMatriz[2][y] = vetor[v]
+                            else:
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
+        if(n_sorteado == 3):
+            for x in range(5):
+                v = 0
+                for y in range(5):
+                    for v in range(len(vetor)):
+                        if(vetor[v] == cenario3[x][y]):
+                            if(vetor[0] == "M"):
+                                novaMatriz[4][y] = vetor[v]
+                            elif(vetor[0] == "V"):
+                                novaMatriz[2][y] = vetor[v]
+                            else:
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
+        if(n_sorteado == 4):            
+            for x in range (5):
+                v = 0
+                for y in range(5):
+                    for v in range(4):
+                        if(cenario4[x][y] == vetor[v]):
+                            if(vetor[0] == "M"):
+                                novaMatriz[x][4] = vetor[v]
+                            elif(vetor[0] == "V"):
+                                novaMatriz[x][2] = vetor[v]
+                            else:
+                                novaMatriz[2][y] = vetor[v]    
+            l+=1
+    print("Loop:",l)
     return novaMatriz, l
 
 def jogar(n_sort):
@@ -160,4 +184,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!")  
+        print("Opção inválida!") 
