@@ -37,19 +37,19 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
         for b in range(5):            
             for c in range(len(vetor)):
-                if(vetor[c] == cenario1[a][b]):
+                if(vetor[c] == cenario1[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario2[a][b]):
+                if(vetor[c] == cenario2[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario3[a][b]):
+                if(vetor[c] == cenario3[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
                     status = True
                 else:
                     status = False
-                if(vetor[c] == cenario4[a][b]):
+                if(vetor[c] == cenario4[a][b] and (vetor[0] == "C" or vetor[0] == "M" or vetor[0] == "V")):
                     status = True
                 else:
                     status = False
@@ -126,9 +126,9 @@ def jogar(n_sort):
         for j in range(5):
             if(cPalav[i][j] != " "):
                 if(cPalav[i][j] == "1" or cPalav[i][j] == "2" or cPalav[i][j] == "3"):
-                    print(f"\033[30;40m {cPalav[i][j]} \033[m", end="")
+                    print(f"\033[40m {cPalav[i][j]} \033[m", end="")
                 else:                
-                    print(f"\033[31;41m {cPalav[i][j]} \033[m", end="")
+                    print(f"\033[41m {cPalav[i][j]} \033[m", end="")
             else:            
                 print(f" {cPalav[i][j]} ", end="")
         print()
@@ -155,9 +155,9 @@ def jogar(n_sort):
             for j in range(5):
                 if(nMatriz[i][j] != " "):
                     if(nMatriz[i][j] == "1" or nMatriz[i][j] == "2" or nMatriz[i][j] == "3"):
-                        print(f"\033[30;40m {nMatriz[i][j]} \033[m", end="")
+                        print(f"\033[40m {nMatriz[i][j]} \033[m", end="")
                     else:                
-                        print(f"\033[0;31;41m {nMatriz[i][j]} \033[m", end="")
+                        print(f"\033[41m {nMatriz[i][j]} \033[m", end="")
                 else:            
                     print(f" {nMatriz[i][j]} ", end="")
             print()   
@@ -183,4 +183,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!") 
+        print("Opção inválida!")
