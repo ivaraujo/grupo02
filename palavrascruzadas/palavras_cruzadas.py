@@ -184,4 +184,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!")  
+        print("Opção inválida!") 
