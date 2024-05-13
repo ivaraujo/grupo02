@@ -16,6 +16,7 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     v = 0
     x = 0
     y = 0
+    erro = 0
     verifica = 0
     status = False    
     for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
