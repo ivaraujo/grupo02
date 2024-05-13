@@ -5,12 +5,10 @@ import os
 #FUNÇÕES
 def sortearCenario(): #SORTEADOR DE CENÁRIO
     n = random.choice([1,2,3,4])
-    print(f"Cenário: {n}")
     return n
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    #n_sorteado = 1
     cenario1 = [[" "," ","3"," ","2"],
                 [" "," ","M"," ","V"],
                 ["1","C","A","J","A"],
@@ -105,7 +103,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 for y in range(5):
                     for v in range(4):
                         if(cenario4[x][y] == vetor[v]):
-                            #print(f"X: {x} Y: {y} V: {v}")
                             if(vetor[0] == "M"):
                                 novaMatriz[x][4] = vetor[v]
                             elif(vetor[0] == "V"):
@@ -117,8 +114,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     return novaMatriz, l
 
 def jogar(n_sort):
-    #n_sort = 4
-    
     if(n_sort == 1):
         cPalav = [[" "," ","3"," ","2"],[" "," ","-"," ","-"],["1","-","-","-","-"],[" "," ","-"," ","-"],[" "," ","-"," ","-"]]
     if(n_sort == 2):
