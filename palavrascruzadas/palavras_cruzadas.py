@@ -34,7 +34,7 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     y = 0
     verifica = 0
     status = False    
-    for a in range(5):        
+    for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
         for b in range(5):            
             for c in range(len(vetor)):
                 if(vetor[c] == cenario1[a][b]):
@@ -57,6 +57,7 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                 if(status == True):
                     verifica += 1
     if(verifica > 4):
+        #VALIDANDO CENÁRIOS
         if(n_sorteado == 1):
             for x in range(5):
                 v = 0
@@ -133,7 +134,7 @@ def jogar(n_sort):
         print()
     loop = 0
     while (True):
-        if(loop == 3):
+        if(loop == 3): #VERIFICA PARA FINALIZAR O JOGO
             print()
             print("PARABÉNS! VOCÊ TERMINOU!")
             print()
