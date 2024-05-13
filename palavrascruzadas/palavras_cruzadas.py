@@ -9,14 +9,36 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    cenario1 = [[" "," ","3"," ","2"],[" "," ","M"," ","V"],["1","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
-    cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["3","M","A","Ç","Ã"],[" "," ","J"," "," "],["2","V","A","S","O"]]
-    cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
-    cenario4 = [[" "," ","2"," ","3"],[" "," ","V"," ","M"],["1","C","A","J","A"],[" "," ","S"," ","Ç"],[" "," ","O"," ","Ã"]]
+    cenario1 = [[" "," ","3"," ","2"],
+                [" "," ","M"," ","V"],
+                ["1","C","A","J","A"],
+                [" "," ","Ç"," ","S"],
+                [" "," ","Ã"," ","O"]]
+    cenario2 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["3","M","A","Ç","Ã"],
+                [" "," ","J"," "," "],
+                ["2","V","A","S","O"]]
+    cenario3 = [[" "," ","1"," "," "],
+                [" "," ","C"," "," "],
+                ["2","V","A","S","O"],
+                [" "," ","J"," "," "],
+                ["3","M","A","Ç","Ã"]]
+    cenario4 = [[" "," ","2"," ","3"],
+                [" "," ","V"," ","M"],
+                ["1","C","A","J","A"],
+                [" "," ","S"," ","Ç"],
+                [" "," ","O"," ","Ã"]]
+    erro = 0
+    c_jatem = 0
+    m_jatem = 0
+    v_jatem = 0      
+    if len(vetor) > 4:
+        print("Errado")
+        erro = 1
     v = 0
     x = 0
     y = 0
-    erro = 0
     verifica = 0
     status = False    
     for a in range(5): #VALIDANDO A QUANTIDADE DE CARACTERES PARA PREENCHER MATRIZ    
@@ -180,4 +202,4 @@ while True:
     elif (opcao == 2):
         break
     else:
-        print("Opção inválida!") 
+        print("Opção inválida!")
