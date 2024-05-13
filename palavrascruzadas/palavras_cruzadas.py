@@ -10,7 +10,7 @@ def sortearCenario(): #SORTEADOR DE CENÁRIO
 
 def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     # CENÁRIOS
-    #n_sorteado = 4
+    #n_sorteado = 1
     cenario1 = [[" "," ","3"," ","2"],[" "," ","M"," ","V"],["1","C","A","J","A"],[" "," ","Ç"," ","S"],[" "," ","Ã"," ","O"]]
     cenario2 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["3","M","A","Ç","Ã"],[" "," ","J"," "," "],["2","V","A","S","O"]]
     cenario3 = [[" "," ","1"," "," "],[" "," ","C"," "," "],["2","V","A","S","O"],[" "," ","J"," "," "],["3","M","A","Ç","Ã"]]
@@ -18,24 +18,32 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
     v = 0
     x = 0
     y = 0
-    verifica = 0    
-    for a in range(5):
-        status = False
+    verifica = 0
+    status = False    
+    for a in range(5):        
         for b in range(5):            
             for c in range(len(vetor)):
                 if(vetor[c] == cenario1[a][b]):
                     status = True
+                else:
+                    status = False
                 if(vetor[c] == cenario2[a][b]):
                     status = True
+                else:
+                    status = False
                 if(vetor[c] == cenario3[a][b]):
                     status = True
+                else:
+                    status = False
                 if(vetor[c] == cenario4[a][b]):
                     status = True
-    if(status == True):
-        verifica += 1
+                else:
+                    status = False
+
+                if(status == True):
+                    verifica += 1
     print("Verifica:", verifica)
-    verifica = 4
-    if(verifica == 4):
+    if(verifica > 4):
         if(n_sorteado == 1):
             for x in range(5):
                 v = 0
@@ -47,8 +55,8 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             elif(vetor[0] == "M"):
                                 novaMatriz[x][4] = vetor[v]
                             else:
-                                novaMatriz[x][y] = vetor[v]
-                l+=1
+                                novaMatriz[2][y] = vetor[v]
+            l+=1
         if(n_sorteado == 2):
             for x in range(5):
                 v = 0
@@ -60,8 +68,8 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             elif(vetor[0] == "M"):
                                 novaMatriz[2][y] = vetor[v]
                             else:
-                                novaMatriz[x][y] = vetor[v]
-                l+=1
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
         if(n_sorteado == 3):
             for x in range(5):
                 v = 0
@@ -73,10 +81,9 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             elif(vetor[0] == "V"):
                                 novaMatriz[2][y] = vetor[v]
                             else:
-                                novaMatriz[x][y] = vetor[v]
-                l+=1
-        if(n_sorteado == 4):
-            #print(novaMatriz)
+                                novaMatriz[x][2] = vetor[v]
+            l+=1
+        if(n_sorteado == 4):            
             for x in range (5):
                 v = 0
                 for y in range(5):
@@ -88,8 +95,8 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             elif(vetor[0] == "V"):
                                 novaMatriz[x][2] = vetor[v]
                             else:
-                                novaMatriz[x][y] = vetor[v]    
-                l+=1
+                                novaMatriz[2][y] = vetor[v]    
+            l+=1
     print("Loop:",l)
     return novaMatriz, l
 
@@ -117,14 +124,12 @@ def jogar(n_sort):
         print()
     loop = 0
     while (True):
-        #print("Loop:",loop)
-        if(loop > 15):
+        if(loop == 3):
             print()
             print("PARABÉNS! VOCÊ TERMINOU!")
             print()
             break
         print()
-        #print(f"Cenário: {sortearCenario()}")
         print("| ++ Dicas ++ |")        
         print("1º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
         print("2º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas")
