@@ -56,7 +56,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
 
                 if(status == True):
                     verifica += 1
-    print("Verifica:", verifica)
     if(verifica > 4):
         if(n_sorteado == 1):
             for x in range(5):
@@ -110,7 +109,6 @@ def verificaPalavra(novaMatriz,vetor,n_sorteado,l):
                             else:
                                 novaMatriz[2][y] = vetor[v]    
             l+=1
-    print("Loop:",l)
     return novaMatriz, l
 
 def jogar(n_sort):
