@@ -5,6 +5,7 @@ import time
 jogadas = 1
 tentadenovo = 0
 menu = 0
+
 def limparjogo(jvelha):
     jvelha = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     for i in range (3):
@@ -77,8 +78,8 @@ def verificarvitoriax():#verificar vitoria
 jogadadojogador1, jogadadojogador2 = sorteajogada() #soreteia o jogador q começa
 while menu == 0: #ativação do menu
     mantemmenu = 0
-    print("|Bem-Vindo|")
-    print("|Ao|")
+    print("  |Bem-Vindo|")
+    print("     |Ao|")
     print("|Jogo da Velha| \n")
     print("---Carregando---")
     time.sleep(1.5)
@@ -92,7 +93,7 @@ while menu == 0: #ativação do menu
         print("---------MENU---------")
         print("|[1] - Iniciar jogo!|")
         print("|[2] - Sair. |")
-        opcao = int(input("\n--->"))
+        opcao = int(input("\n---> "))
         if opcao == 1:
             vitorioso = False
             irpromenu = False
