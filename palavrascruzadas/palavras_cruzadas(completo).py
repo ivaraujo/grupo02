@@ -163,11 +163,13 @@ def jogar(n_sort):
             print("PARABÉNS! VOCÊ TERMINOU!")
             print()
             break
+
         print()
         print("| ++ Dicas ++ |")        
         print("1º palavra -> É uma fruta que tem uma polpa suculenta de sabor relativamente azedo e uma grande semente.")
         print("2º palavra -> É utilizado para diversos tipos de coisas, desde guardar itens de casa até decorações. Geralmente reutilizado para guardar diversas coisas")
         print("3º palavra -> É uma fruta crocante ao dar uma mordida. E sua textura é macia por dentro.\n")
+
         palavra = input("Digite a palavra: ")        
         vet_palavra = list(palavra.upper())
         if(os.name == "nt"):
@@ -188,7 +190,7 @@ def jogar(n_sort):
 # MENU
 while True:
     sorteado = sortearCenario()
-    print("|SEJAM MUITO BEM-VINDOS|")
+    print("   |SEJAM MUITO BEM-VINDOS|")
     time.sleep(1.5)
     print("|AO JOGO DE PALAVRAS-CRUZADAS!|\n")
     time.sleep(1.5)
